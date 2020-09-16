@@ -1,0 +1,18 @@
+
+> blogger@0.0.0 start /home/bitnami/Lab2/blogger
+> node ./bin/www
+
+[0mGET /blogList [36m304 [0m8.674 ms - -[0m
+[0mGET /blogAdd [36m304 [0m1.305 ms - -[0m
+[0mGET /blogList [36m304 [0m1.795 ms - -[0m
+[0mGET / [36m304 [0m1.257 ms - -[0m
+[0mGET /blogAdd [36m304 [0m1.227 ms - -[0m
+[0mGET / [36m304 [0m1.158 ms - -[0m
+[0mHEAD /robots.txt [33m404 [0m1.407 ms - 963[0m
+[0mGET / [32m200 [0m1.073 ms - 791[0m
+[0mGET / [32m200 [0m0.941 ms - 791[0m
+[0mGET / [32m200 [0m2.710 ms - 791[0m
+[0mGET / [32m200 [0m0.915 ms - 791[0m
+[0mGET / [32m200 [0m0.910 ms - 791[0m
+[0mGET / [32m200 [0m1.778 ms - 791[0m
+[0mGET /hudson [33m404 [0m1.078 ms - 963[0m
