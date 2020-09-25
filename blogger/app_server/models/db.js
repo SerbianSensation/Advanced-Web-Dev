@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var dbURI = 'mongodb://stefangligorevic@gmail.com:eg6khxFq@localhost/blogger';
+var dbURI = 'mongodb://username:password@localhost/blogger';
 
 mongoose.connect(dbURI);
 
