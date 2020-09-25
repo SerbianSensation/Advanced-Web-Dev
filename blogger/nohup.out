@@ -16,3 +16,76 @@
 [0mGET / [32m200 [0m0.910 ms - 791[0m
 [0mGET / [32m200 [0m1.778 ms - 791[0m
 [0mGET /hudson [33m404 [0m1.078 ms - 963[0m
+
+> blogger@0.0.0 start /home/bitnami/Lab3/Advanced-Web-Dev/blogger
+> node ./bin/www
+
+(node:3746) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+Mongoose connection error: Error: Username containing an unescaped at-sign
+(node:3746) UnhandledPromiseRejectionWarning: Error: Username containing an unescaped at-sign
+    at parseConnectionString (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/url_parser.js:187:13)
+    at parseHandler (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/url_parser.js:130:14)
+    at module.exports (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/url_parser.js:26:12)
+    at deprecated (internal/util.js:89:15)
+    at connect (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/operations/connect.js:282:3)
+    at /home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/mongo_client.js:223:5
+    at maybePromise (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/utils.js:662:3)
+    at MongoClient.connect (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/mongo_client.js:219:10)
+    at /home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/connection.js:788:12
+    at new Promise (<anonymous>)
+    at NativeConnection.Connection.openUri (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/connection.js:785:19)
+    at /home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/index.js:341:10
+    at /home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/helpers/promiseOrCallback.js:30:10)
+    at Mongoose.connect (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/index.js:340:10)
+(node:3746) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+(node:3746) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+Mongoose disconnected through app termination
+
+> blogger@0.0.0 start /home/bitnami/Lab3/Advanced-Web-Dev/blogger
+> node ./bin/www
+
+(node:3767) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+Mongoose connection error: Error: Username containing an unescaped at-sign
+(node:3767) UnhandledPromiseRejectionWarning: Error: Username containing an unescaped at-sign
+    at parseConnectionString (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/url_parser.js:187:13)
+    at parseHandler (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/url_parser.js:130:14)
+    at module.exports (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/url_parser.js:26:12)
+    at deprecated (internal/util.js:89:15)
+    at connect (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/operations/connect.js:282:3)
+    at /home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/mongo_client.js:223:5
+    at maybePromise (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/utils.js:662:3)
+    at MongoClient.connect (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongodb/lib/mongo_client.js:219:10)
+    at /home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/connection.js:788:12
+    at new Promise (<anonymous>)
+    at NativeConnection.Connection.openUri (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/connection.js:785:19)
+    at /home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/index.js:341:10
+    at /home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/helpers/promiseOrCallback.js:31:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/helpers/promiseOrCallback.js:30:10)
+    at Mongoose.connect (/home/bitnami/Lab3/Advanced-Web-Dev/blogger/node_modules/mongoose/lib/index.js:340:10)
+(node:3767) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+(node:3767) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[0mGET / [36m304 [0m8.976 ms - -[0m
+[0mGET /blogAdd [36m304 [0m1.940 ms - -[0m
+[0mGET /blogList [36m304 [0m1.869 ms - -[0m
+[0mGET /blogEdit [36m304 [0m1.374 ms - -[0m
+[0mGET /blogAdd [36m304 [0m1.134 ms - -[0m
+[0mGET /blogList [36m304 [0m1.626 ms - -[0m
+[0mGET /blogDelete [36m304 [0m1.366 ms - -[0m
+[0mGET /blogList [36m304 [0m1.288 ms - -[0m
+[0mGET /blogDelete [36m304 [0m2.008 ms - -[0m
+[0mGET /blogList [36m304 [0m1.253 ms - -[0m
+[0mGET /blogEdit [36m304 [0m1.110 ms - -[0m
+[0mGET /blogList [36m304 [0m2.095 ms - -[0m
+[0mGET /blogEdit [36m304 [0m0.926 ms - -[0m
+[0mGET /blogList [36m304 [0m1.258 ms - -[0m
+[0mGET /blogDelete [36m304 [0m0.913 ms - -[0m
+[0mGET /blogList [36m304 [0m1.269 ms - -[0m
+[0mGET / [36m304 [0m1.097 ms - -[0m
+[0mGET /blogList [36m304 [0m1.261 ms - -[0m
+[0mGET /blogEdit [36m304 [0m0.945 ms - -[0m
+[0mGET /blogList [36m304 [0m1.215 ms - -[0m
+[0mGET /blogDelete [36m304 [0m0.883 ms - -[0m
+[0mGET /blogList [36m304 [0m1.226 ms - -[0m

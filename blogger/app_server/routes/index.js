@@ -10,5 +10,7 @@ router.get('/', ctrlHome.index);
 //reference methods of blog controller
 router.get('/blogList', ctrlBlog.blogList);
 router.get('/blogAdd', ctrlBlog.blogAdd);
+router.get('/blogEdit', ctrlBlog.blogEdit);
+router.get('/blogDelete', ctrlBlog.blogDelete);
 
 module.exports = router;
