@@ -4,10 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-require('./app_server/models/db');
+require('./app_api/models/db');
 
 var indexRouter = require('./app_server/routes/index');
-//var usersRouter = require('./app_server/routes/users');
+var routesApi = require('./app_api/routes/index');
 
 var app = express();
 
@@ -28,6 +28,9 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/css', express.static(__dirname + '/public/stylesheets'));
 app.use('/webfonts', express.static(__dirname + '/public/fonts/webfonts/'));
 
+//redirect Angular js
+app.use('/js', express.static(__dirname + '/node_modules/angular'));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -35,7 +38,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-//app.use('/users', usersRouter);
+app.use('/api', routesApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

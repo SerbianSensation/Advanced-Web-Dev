@@ -89,3 +89,104 @@ Mongoose connection error: Error: Username containing an unescaped at-sign
 [0mGET /blogList [36m304 [0m1.215 ms - -[0m
 [0mGET /blogDelete [36m304 [0m0.883 ms - -[0m
 [0mGET /blogList [36m304 [0m1.226 ms - -[0m
+
+> blogger@0.0.0 start /home/bitnami/Lab4/Advanced-Web-Dev/blogger
+> node ./bin/www
+
+(node:857) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:857) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+Mongoose connected to mongodb://blogs:blogs@localhost/blogs
+[0mGET / [32m200 [0m8.822 ms - 791[0m
+[0mGET /favicon.ico [33m404 [0m1.701 ms - 1818[0m
+Getting list of blogs.
+[
+  {
+    _id: 5f7cb6bfdc9bdd58c74cd539,
+    title: 'First Edited Blog',
+    text: "3rd time's the charm?",
+    createdOn: 2020-10-06T18:26:07.078Z,
+    __v: 0
+  },
+  {
+    _id: 5f7cb859d1694858ed8050e0,
+    title: 'Second Added Blog',
+    text: 'You already know the drill.',
+    createdOn: 2020-10-06T18:32:57.790Z,
+    __v: 0
+  },
+  {
+    _id: 5f7ce397728cd05c13f9d14b,
+    title: '2nd edited blog',
+    text: 'testing edit blog icon.',
+    createdOn: 2020-10-06T21:37:27.543Z,
+    __v: 0
+  },
+  {
+    _id: 5f7ceb2895453b5d499c5033,
+    title: 'The Real Slim Shady',
+    text: 'Will the real slim shady PLEASE stand up?',
+    createdOn: 2020-10-06T22:09:44.477Z,
+    __v: 0
+  },
+  {
+    _id: 5f7f578552891a7ea31e7843,
+    title: 'Testing Redirect',
+    text: 'Should redirect back to blogList after adding.',
+    createdOn: 2020-10-08T18:16:37.977Z,
+    __v: 0
+  },
+  {
+    _id: 5f7f5c171521ee01caa6394b,
+    title: 'New blog',
+    text: 'One more for good measure',
+    createdOn: 2020-10-08T18:36:07.885Z,
+    __v: 0
+  }
+]
+[0mGET /api/blogs/ [32m200 [0m35.811 ms - 846[0m
+[
+  {
+    title: 'First Edited Blog',
+    text: "3rd time's the charm?",
+    createdOn: '2020-10-06T18:26:07.078Z',
+    _id: '5f7cb6bfdc9bdd58c74cd539'
+  },
+  {
+    title: 'Second Added Blog',
+    text: 'You already know the drill.',
+    createdOn: '2020-10-06T18:32:57.790Z',
+    _id: '5f7cb859d1694858ed8050e0'
+  },
+  {
+    title: '2nd edited blog',
+    text: 'testing edit blog icon.',
+    createdOn: '2020-10-06T21:37:27.543Z',
+    _id: '5f7ce397728cd05c13f9d14b'
+  },
+  {
+    title: 'The Real Slim Shady',
+    text: 'Will the real slim shady PLEASE stand up?',
+    createdOn: '2020-10-06T22:09:44.477Z',
+    _id: '5f7ceb2895453b5d499c5033'
+  },
+  {
+    title: 'Testing Redirect',
+    text: 'Should redirect back to blogList after adding.',
+    createdOn: '2020-10-08T18:16:37.977Z',
+    _id: '5f7f578552891a7ea31e7843'
+  },
+  {
+    title: 'New blog',
+    text: 'One more for good measure',
+    createdOn: '2020-10-08T18:36:07.885Z',
+    _id: '5f7f5c171521ee01caa6394b'
+  }
+]
+[0mGET /blogList [32m200 [0m49.586 ms - 6606[0m
+
+> blogger@0.0.0 start /home/bitnami/Lab4/Advanced-Web-Dev/blogger
+> node ./bin/www
+
+(node:1168) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+(node:1168) DeprecationWarning: current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor.
+Mongoose connected to mongodb://blogs:blogs@localhost/blogs
