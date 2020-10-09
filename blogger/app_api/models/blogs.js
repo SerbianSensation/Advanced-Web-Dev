@@ -1,5 +1,7 @@
 var mongoose = require( 'mongoose' );
 
+var getNewDate = function() { return new Date(); };
+
 var blogSchema = new mongoose.Schema({
 	title: {
 		type: String,
@@ -10,9 +12,8 @@ var blogSchema = new mongoose.Schema({
 		required: true
 	},
 	createdOn: {
-		type: Date,
-		"default": Date.now,
-		required: true
+		type: String,
+		"default": getNewDate().toLocaleString("en-US", {timeZone: "America/New_York"})
 	}
 });
 
