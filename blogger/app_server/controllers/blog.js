@@ -36,7 +36,8 @@ module.exports.addBlog = function(req, res) {
 
 	var postdata = {
 		title: req.body.title,
-		text: req.body.text
+		text: req.body.text,
+		createdOn: new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
 	};
 
 	var requestOptions = {
