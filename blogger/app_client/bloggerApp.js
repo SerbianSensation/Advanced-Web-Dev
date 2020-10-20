@@ -1,4 +1,4 @@
-var app = angular.module('bloggerApp', ['ngRoute']);
+var app = angular.module('bloggerApp', ['ngRoute', 'ui.router']);
 
 //*** routerProvider ***
 app.config(function($routeProvider) {
@@ -33,9 +33,18 @@ app.config(function($routeProvider) {
 			controllerAs: 'vm'
 		})
 
-		.otherwise({redirectTo: '/blogList'});
+		.otherwise({redirectTo: '/'});
 });
 
+//*** State Provider ***//
+app.config(function($stateProvider) {
+	$stateProvider
+		.state('blogList', {
+			url: '/blogList',
+			templateUrl: 'pages/blogList.html',
+			controller: 'ListController'
+		});
+});
 
 //**** REST Web API functions ***
 
@@ -47,8 +56,16 @@ function getBlogById($http, id) {
 	return $http.get('/api/blogs' + id);
 }
 
+function addBlog($http, data) {
+	return $http.post('/api/blogs/', data);
+}
+
 function updateBlog($http, id, data) {
-	return $http.put('/api/blogs/' + id);
+	return $http.put('/api/blogs/' + id, data);
+}
+
+function deleteBlog($http, id) {
+	return $http.delete('/api/blogs/' + id);
 }
 
 //*** Controllers ***
@@ -62,9 +79,31 @@ app.controller('HomeController', function HomeController() {
 	vm.message = "Welcome to my blog site!";
 });
 
+//blog add controller
+app.controller("AddController", [ '$http', '$routeParams', '$state', function AddController($http, $routeParams, $state) {
+	var vm = this;
+	vm.blog = {};
+	vm.title = "Add Blog";
+
+	vm.submit = function() {
+		var data = vm.blog;
+		data.title = addForm.title.value;
+		data.text = addForm.text.value;
+
+		addBlog($http, data)
+			.success(function(data) {
+				vm.message = "Blog data added!";
+				$state.go('blogList');
+			})
+			.error(function (e) {
+				vm.message = "Could not add blog";
+			});
+	}
+}]);
+
 //blog list controller
 app.controller('ListController', function ListController($http) {
-	var.vm = this;
+	var vm = this;
 	vm.pageHeader = {
 		title: 'Blog List'
 	};
@@ -109,5 +148,43 @@ app.controller('Edit Controller', [ '$http', '$routeParams', '$state', function 
 		.error(function (e) {
 			vm.message = "Could not update blog with id " + vm.blogid + userForm.title.text + " " + userForm.text.text;
 		});
+	}
+
+	vm.cancel = function() {
+		$state.go('blogList');
+	}
+}]);
+
+//delete blog controller
+app.controller("Delete Controller", [ '$http', '$routeParams', '$state', function DeleteController($http, $routeParams, $state) {
+	var vm = this;
+	vm.blog = {};
+	vm.blogid = $routeParams.blogid;
+	vm.title = "Delete Blog";
+
+	getBlogById($http, vm.blogid)
+		.success(function(data) {
+			vm.blog = data;
+			vm.message = "Blog data found!";
+		})
+		.error(function (e) {
+			vm.message = "Could not get blog with id " + vm.blogid;
+		});
+
+	vm.submit = function() {
+		var data = {};
+		deleteBlog($http, vm.blogid)
+			.success(function(data) {
+				vm.message = "Blog data deleted!";
+				//go back to blogList
+				$state.go('blogList');
+			})
+			.error(function (e) {
+				vm.message = "Could not delete blog with id " + vm.blogid;
+			});
+	}
+
+	vm.cancel = function() {
+		$state.go('blogList');
 	}
 }]);
