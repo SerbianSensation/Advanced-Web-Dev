@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 require('./app_api/models/db');
 
-var indexRouter = require('./app_server/routes/index');
+//var indexRouter = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
 
 var app = express();
@@ -14,8 +14,8 @@ var app = express();
 //set port to 80
 app.set('port', 80);
 // view engine setup
-app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.set('view engine', 'ejs');
+//app.set('views', path.join(__dirname, 'app_server', 'views'));
+//app.set('view engine', 'ejs');
 
 //copied from todo app to make jquery/bootstrap work
 app.use(express.static(path.join(__dirname, 'public')));
@@ -30,15 +30,26 @@ app.use('/webfonts', express.static(__dirname + '/public/fonts/webfonts/'));
 
 //redirect Angular js
 app.use('/js', express.static(__dirname + '/node_modules/angular'));
+app.use('/js', express.static(__dirname + '/app_client/lib'));
+
+//redirect app_client for bloggerApp js
+app.use('/js', express.static(__dirname + '/app_client'));
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//include app_client directory
+app.use(express.static(path.join(__dirname, 'app_client')));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/api', routesApi);
+
+//use index.html from app_client (Angular front-end)
+app.use(function(req, res) {
+	res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

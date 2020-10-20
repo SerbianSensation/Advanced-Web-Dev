@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.28",
     "angular": "^1.8.1",
     "bootstrap": "^4.5.2",
     "cookie-parser": "~1.4.4",
