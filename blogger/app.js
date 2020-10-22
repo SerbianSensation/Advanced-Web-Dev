@@ -1,10 +1,14 @@
+require('dotenv').config();
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var passport = require('passport');
 
 require('./app_api/models/db');
+require('./app_api/config/passport');
 
 var routesApi = require('./app_api/routes/index');
 
@@ -30,6 +34,9 @@ app.use('/js', express.static(__dirname + '/node_modules/angular-route'));
 app.use('/js', express.static(__dirname + '/node_modules/angular-ui-router/release'));
 //redirect app_client for bloggerApp js
 app.use('/js', express.static(__dirname + '/app_client'));
+
+//Initialize passport
+app.use(passport.initialize());
 
 app.use(logger('dev'));
 app.use(express.json());
