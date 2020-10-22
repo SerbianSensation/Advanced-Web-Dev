@@ -118,7 +118,7 @@ app.controller('ListController', function ListController($http) {
 });
 
 //edit blog controller
-app.controller('Edit Controller', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
+app.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
 	var vm = this;
 	vm.blog = {}; //start with empty blog
 	vm.blogid = $routeParams.blogid; 
@@ -156,7 +156,7 @@ app.controller('Edit Controller', [ '$http', '$routeParams', '$state', function 
 }]);
 
 //delete blog controller
-app.controller("Delete Controller", [ '$http', '$routeParams', '$state', function DeleteController($http, $routeParams, $state) {
+app.controller("DeleteController", [ '$http', '$routeParams', '$state', function DeleteController($http, $routeParams, $state) {
 	var vm = this;
 	vm.blog = {};
 	vm.blogid = $routeParams.blogid;
