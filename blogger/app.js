@@ -6,16 +6,12 @@ var logger = require('morgan');
 
 require('./app_api/models/db');
 
-//var indexRouter = require('./app_server/routes/index');
 var routesApi = require('./app_api/routes/index');
 
 var app = express();
 
 //set port to 80
 app.set('port', 80);
-// view engine setup
-//app.set('views', path.join(__dirname, 'app_server', 'views'));
-//app.set('view engine', 'ejs');
 
 //copied from todo app to make jquery/bootstrap work
 app.use(express.static(path.join(__dirname, 'public')));
@@ -43,7 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //include app_client directory
 app.use(express.static(path.join(__dirname, 'app_client')));
 
-//app.use('/', indexRouter);
 app.use('/api', routesApi);
 
 //use index.html from app_client (Angular front-end)
