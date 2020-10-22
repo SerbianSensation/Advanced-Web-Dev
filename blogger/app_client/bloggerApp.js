@@ -21,13 +21,13 @@ app.config(function($routeProvider) {
 			controllerAs: 'vm'
 		})
 
-		.when('/blogEdit/:blogid', {
+		.when('/blogEdit/:id', {
 			templateUrl: 'pages/blogEdit.html',
 			controller: 'EditController',
 			controllerAs: 'vm'
 		})
 
-		.when('/blogDelete/:blogid', {
+		.when('/blogDelete/:id', {
 			templateUrl: 'pages/blogDelete.html',
 			controller: 'DeleteController',
 			controllerAs: 'vm'
@@ -53,7 +53,7 @@ function getBlogs($http) {
 }
 
 function getBlogById($http, id) {
-	return $http.get('/api/blogs' + id);
+	return $http.get('/api/blogs/' + id);
 }
 
 function addBlog($http, data) {
@@ -121,18 +121,18 @@ app.controller('ListController', function ListController($http) {
 app.controller('EditController', [ '$http', '$routeParams', '$state', function EditController($http, $routeParams, $state) {
 	var vm = this;
 	vm.blog = {}; //start with empty blog
-	vm.blogid = $routeParams.blogid; 
+	vm.id = $routeParams.id; 
 	vm.pageHeader = {
 		title: 'Blog Edit'
 	};
 
 	//Get blog data to be displayed on edit page
-	getBlogById($http, vm.blogid).success(function(data) {
+	getBlogById($http, vm.id).success(function(data) {
 		vm.blog = data;
 		vm.message = "Blog data found!";
 	})
 	.error(function (e) {
-		vm.message = "Could not get blog with id " + vm.blogid;
+		vm.message = "Could not get blog with id " + vm.id;
 	});
 
 	//Submit function attached to ViewModel for use in form
@@ -141,17 +141,13 @@ app.controller('EditController', [ '$http', '$routeParams', '$state', function E
 		data.title = userForm.title.value;
 		data.text = userForm.text.value;
 
-		updateBlog($http, vm.blogid, data).success(function(data) {
+		updateBlog($http, vm.id, data).success(function(data) {
 			vm.message = "Blog data updated!";
 			$state.go('blogList'); //refer to book for info on StateProvider
 		})
 		.error(function (e) {
-			vm.message = "Could not update blog with id " + vm.blogid + userForm.title.text + " " + userForm.text.text;
+			vm.message = "Could not update blog with id " + vm.id;
 		});
-	}
-
-	vm.cancel = function() {
-		$state.go('blogList');
 	}
 }]);
 
@@ -159,28 +155,28 @@ app.controller('EditController', [ '$http', '$routeParams', '$state', function E
 app.controller("DeleteController", [ '$http', '$routeParams', '$state', function DeleteController($http, $routeParams, $state) {
 	var vm = this;
 	vm.blog = {};
-	vm.blogid = $routeParams.blogid;
+	vm.id = $routeParams.id;
 	vm.title = "Delete Blog";
 
-	getBlogById($http, vm.blogid)
+	getBlogById($http, vm.id)
 		.success(function(data) {
 			vm.blog = data;
 			vm.message = "Blog data found!";
 		})
 		.error(function (e) {
-			vm.message = "Could not get blog with id " + vm.blogid;
+			vm.message = "Could not get blog with id " + vm.id;
 		});
 
 	vm.submit = function() {
 		var data = {};
-		deleteBlog($http, vm.blogid)
+		deleteBlog($http, vm.id)
 			.success(function(data) {
 				vm.message = "Blog data deleted!";
 				//go back to blogList
 				$state.go('blogList');
 			})
 			.error(function (e) {
-				vm.message = "Could not delete blog with id " + vm.blogid;
+				vm.message = "Could not delete blog with id " + vm.id;
 			});
 	}
 
