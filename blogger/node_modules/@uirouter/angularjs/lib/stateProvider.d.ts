@@ -110,7 +110,7 @@ export declare class StateProvider {
      *
      * @return {object} $stateProvider - $stateProvider instance
      */
-    decorator(name: string, func: BuilderFunction): Function | this;
+    decorator(name: string, func: BuilderFunction): Function | this | BuilderFunction[];
     /**
      * Registers a state
      *

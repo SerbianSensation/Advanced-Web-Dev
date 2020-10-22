@@ -30,8 +30,8 @@ app.use('/webfonts', express.static(__dirname + '/public/fonts/webfonts/'));
 
 //redirect Angular js
 app.use('/js', express.static(__dirname + '/node_modules/angular'));
-app.use('/js', express.static(__dirname + '/app_client/lib'));
-
+app.use('/js', express.static(__dirname + '/node_modules/angular-route'));
+app.use('/js', express.static(__dirname + '/node_modules/angular-ui-router/release'));
 //redirect app_client for bloggerApp js
 app.use('/js', express.static(__dirname + '/app_client'));
 

@@ -15,8 +15,8 @@
 		<a class="navbar-brand" href="/">My Blog</a>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<div class="navbar-nav">
-			<a class="nav-item nav-link active" href="/blogList">List Blogs</a>
-			<a class="nav-item nav-link active" href="/blogAdd">Add Blog</a>
+			<a class="nav-item nav-link active" href="#/blogList">List Blogs</a>
+			<a class="nav-item nav-link active" href="#/blogAdd">Add Blog</a>
 			</div>
 		</div>
 		</nav>
@@ -27,6 +27,7 @@
 			<h2>{{vm.pageHeader.title}}</h2>
 			<h4>{{vm.message}}</h4>
 		</script>
+
 
 		<script type="text/ng-template" id="pages/blogList.html">
 			<p></p>
@@ -43,10 +44,10 @@
 	     					<div class = "col-sm">
                 					<ul class="nav justify-content-end nav-pills card-header-pills">
                     						<li class="nav-item">
-									<a class="nav-link" href="/blogEdit/{{blog._id}}"><i class="fas fa-edit" style="font-size:24px;"></i></a>
+									<a class="nav-link" href="#/blogEdit/{{blog._id}}"><i class="fas fa-edit" style="font-size:24px;"></i></a>
                      						</li>
                     						<li class="nav-item">
-									<a class="nav-link" href="/blogDelete/{{blog._id}}"><i class="fas fa-trash-alt" style="font-size:24px;"></i></a>
+									<a class="nav-link" href="#/blogDelete/{{blog._id}}"><i class="fas fa-trash-alt" style="font-size:24px;"></i></a>
                     						</li>
                 					</ul>
             					</div>  
@@ -54,21 +55,6 @@
     				</div>
 			</div>
 			<p> <!-- card -->
-			</div>
-		</script>
-
-		<script type="text/ng-template" id="pages/blogEdit.html">
-			<p></p>
-			<div class="card border-primary" style="width: 50%">
-			<form name="userForm" ng-submit="vm.submit()" ng-controller="EditController" style="padding: 20px">
-				<div class="form-group">
-					<label for="summary" class="text-primary">Blog Title</label>
-					<input class="form-control" id="title" name="title" value="{{vm.blog.title}}">
-					<label for="detail" class="text-primary">Blog Text></label>
-					<textarea class="form-control" id="text" name="text" rows="3">{{vm.blog.text}}</textarea>
-				</div>
-				<input type="submit" class="btn btn-primary" value="Save Blog">
-			</form>
 			</div>
 		</script>
 
