@@ -1,6 +1,5 @@
-# Lab4: REST API Website
+# Lab5: REST API Website
 
-Added a REST API to the website. The api deals with getting, adding (post), updating (put), and deleting blogs. The front end was edited to have the controllers send requests to the api in order to complete the necessary action. The blogs are no longer static and accessed from the front-end controllers, but rather are accessed from and added to the MongoDB.
+Added an Angular JS front end to the website. The new app_client directory includes the Angular code and replaces app_server, which has been deleted. The functionality of the website is the same as the last lab (Lab 4). 
  
-
-Edit Blog and Delete Blog pages were officially completed. They are linked to using icons on each of the blog posts. Each of these pages successfully gets the ID of the blog, and updates or deletes the blog accordingly.
+My web page with the end product of the labs can be found [here](http://3.237.172.53/)
