@@ -56,16 +56,16 @@ function getBlogById($http, id) {
 	return $http.get('/api/blogs/' + id);
 }
 
-function addBlog($http, data) {
-	return $http.post('/api/blogs/', data);
+function addBlog($http, authentication, data) {
+	return $http.post('/api/blogs/', data, { headers : { Authorization: 'Bearer ' + authentication.getToken() }} );
 }
 
-function updateBlog($http, id, data) {
-	return $http.put('/api/blogs/' + id, data);
+function updateBlog($http, authentication, id, data) {
+	return $http.put('/api/blogs/' + id, data, { headers : { Authorization: 'Bearer ' + authentication.getToken() }} );
 }
 
-function deleteBlog($http, id) {
-	return $http.delete('/api/blogs/' + id);
+function deleteBlog($http, authentication, id) {
+	return $http.delete('/api/blogs/' + id, { headers : { Authorization: 'Bearer ' + authentication.getToken() }} );
 }
 
 //*** Controllers ***

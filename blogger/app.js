@@ -66,7 +66,12 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  //replacing res.render because there are no ejs app_server views anymore
+  //res.render('error');
+  res.json({
+	  message: err.message,
+	  error: err
+  });
 });
 
 module.exports = app;
