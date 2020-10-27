@@ -1,7 +1,7 @@
 var app = angular.module('bloggerApp', ['ngRoute', 'ui.router']);
 
 //*** routerProvider ***
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl: 'pages/home.html',
@@ -33,7 +33,21 @@ app.config(function($routeProvider) {
 			controllerAs: 'vm'
 		})
 
+		.when('/register', {
+			templateUrl: 'common/auth/register.html',
+			controller: 'RegisterController'
+			controllerAs: 'vm'
+		})
+
+		.when('/login', {
+			templateUrl: 'common/auth/login.html',
+			controller: 'LoginController',
+			controllerAs: 'vm'
+		})
+
 		.otherwise({redirectTo: '/'});
+
+	$locationProvider.html5Mode(true);
 });
 
 //*** State Provider ***//
