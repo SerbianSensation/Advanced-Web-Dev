@@ -35,7 +35,7 @@ app.config(function($routeProvider, $locationProvider) {
 
 		.when('/register', {
 			templateUrl: 'common/auth/register.html',
-			controller: 'RegisterController'
+			controller: 'RegisterController',
 			controllerAs: 'vm'
 		})
 
@@ -47,7 +47,7 @@ app.config(function($routeProvider, $locationProvider) {
 
 		.otherwise({redirectTo: '/'});
 
-	$locationProvider.html5Mode(true);
+	//$locationProvider.html5Mode(true);
 });
 
 //*** State Provider ***//

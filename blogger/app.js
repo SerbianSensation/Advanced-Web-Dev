@@ -35,6 +35,10 @@ app.use('/js', express.static(__dirname + '/node_modules/angular-ui-router/relea
 //redirect app_client for bloggerApp js
 app.use('/js', express.static(__dirname + '/app_client'));
 
+//add auth and nav virtual directories
+app.use('/nav', express.static(__dirname + '/app_client/common/nav')); 
+app.use('/auth', express.static(__dirname + '/app_client/common/auth'));
+
 //Initialize passport
 app.use(passport.initialize());
 
