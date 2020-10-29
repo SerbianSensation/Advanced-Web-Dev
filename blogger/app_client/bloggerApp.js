@@ -120,6 +120,14 @@ app.controller('ListController', [ '$http', 'authentication', function ListContr
 		title: 'Blog List'
 	};
 
+	vm.isLoggedIn = function() {
+		return authentication.isLoggedIn();
+	}
+	vm.logout = function() {
+		authentication.logout();
+		$location.path('/');
+	};
+
 	getBlogs($http).success(function(data) {
 		vm.blogs = data;
 		vm.message = "Blog data found!";
