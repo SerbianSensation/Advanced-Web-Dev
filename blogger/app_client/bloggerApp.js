@@ -102,6 +102,10 @@ app.controller("AddController", [ '$http', '$routeParams', '$state', 'authentica
 		data.title = addForm.title.value;
 		data.text = addForm.text.value;
 
+		var currentUser = authentication.currentUser();
+		data.author = currentUser.name;
+		data.authorEmail = currentUser.email;
+
 		addBlog($http, authentication, data)
 			.success(function(data) {
 				vm.message = "Blog data added!";
@@ -120,13 +124,8 @@ app.controller('ListController', [ '$http', 'authentication', function ListContr
 		title: 'Blog List'
 	};
 
-	vm.isLoggedIn = function() {
-		return authentication.isLoggedIn();
-	}
-	vm.logout = function() {
-		authentication.logout();
-		$location.path('/');
-	};
+	vm.isLoggedIn = authentication.isLoggedIn();
+	vm.currentUser = authentication.currentUser();
 
 	getBlogs($http).success(function(data) {
 		vm.blogs = data;
