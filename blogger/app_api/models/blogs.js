@@ -22,7 +22,10 @@ var blogSchema = new mongoose.Schema({
 	authorEmail: {
 		type: String,
 		required: true
-	}
+	},
+	comments: [{
+		type: String
+	}]
 });
 
 mongoose.model('Blog', blogSchema);

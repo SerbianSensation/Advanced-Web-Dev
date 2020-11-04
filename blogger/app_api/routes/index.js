@@ -23,4 +23,7 @@ router.delete('/blogs/:blogid', auth, ctrlBlog.blogDeleteOne);
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
+//add route for adding comment to blog (Lab 8)
+router.put('/blogs/:blogid/comments', auth, ctrlBlog.addComment);
+
 module.exports = router;
