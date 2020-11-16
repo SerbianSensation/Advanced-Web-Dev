@@ -129,7 +129,7 @@ module.exports.addComment = function (req, res) {
 	console.log("Commenting on blog with id " + req.params.blogid);
 	console.log(req.body);
 	Blog.findOneAndUpdate({ _id: req.params.blogid },
-		{ $set: { "comments": req.body.comments }},
+		{ $set: { "comments" : req.body.comments }},
 		function(err, response) {
 			if (err) {
 				sendJSONResponse(res, 400, err);

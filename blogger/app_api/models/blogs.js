@@ -24,7 +24,9 @@ var blogSchema = new mongoose.Schema({
 		required: true
 	},
 	comments: [{
-		type: String
+		author: String,
+		authorEmail: String,
+		text: String
 	}]
 });
 

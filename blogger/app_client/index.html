@@ -38,15 +38,15 @@
 			<div class="card-footer">
 			    <div class="col-sm">
 			       <ul class="nav justify-content-end nav-pills card-header-pills">
-			         <li class="nav-item">
+					  <li class="nav-item">
+						<a ng-show="vm.isLoggedIn" class="nav-link" href="#/comments/add/{{blog._id}}"> <i class="fas fa-reply"></i></a>
+					  </li> 
+					  <li class="nav-item">
+						<a ng-show="vm.isLoggedIn" class="nav-link" href="#/comments/{{blog._id}}"> <i class="fas fa-list"></i></a>
+					  </li>
+					  <li class="nav-item">
 				     	<a ng-show="vm.isLoggedIn && vm.currentUser.email == blog.authorEmail" class="nav-link" href="#/blogEdit/{{blog._id}}"> <i class="fas fa-edit"></i></a>
 				 	  </li>
-					  <li class="nav-item">
-						<a ng-show="vm.isLoggedIn && vm.currentUser.email != blog.authorEmail" class="nav-link" href="#/comments/add/{{blog._id}}"> <i class="fas fa-reply"></i></a>
-					  </li>
-					  <li class="nav-item">
-						<a ng-show="vm.isLoggedIn && vm.currentUser.email != blog.authorEmail" class="nav-link" href="#/comments/{{blog._id}}"> <i class="fas fa-list"></i></a>
-					  </li>
 				 	  <li class="nav-item">
 				     	<a ng-show="vm.isLoggedIn && vm.currentUser.email == blog.authorEmail" class="nav-link" href="#/blogDelete/{{blog._id}}"> <i class="fas fa-trash-alt"></i></a>
 				 	  </li>
@@ -129,7 +129,8 @@
 				<div ng-repeat="comment in vm.blog.comments">
 					<form style="padding: 20px">
 						<div class="form-group">
-							<textarea readonly class="form-control" id="comments" name="comments" rows="4">{{ comment }}</textarea>
+							<textarea readonly class="form-control" id="comments" name="comments" rows="4">{{ comment.text }}</textarea>
+							<span><i>Posted by {{ comment.author }}</i></span>
 						</div>
 					</form>
 				</div>
@@ -153,7 +154,8 @@
 			  <div class="card-footer">
 				<form name="userForm" ng-submit="vm.submit()" ng-controller="CommentsController" style="padding: 20px">
 					<div class="form-group">
-						<textarea class="form-control" id="comments" name="comments" rows="4">Add Comment Here</textarea>
+						<label for="detail" class="text-primary">Comment Text</label>
+						<textarea class="form-control" id="comments" name="comments" rows="4"></textarea>
 					</div>
 					<input type="submit" class="btn btn-primary" value="Add Comment">
 					<button ng-click="vm.cancel()" ng-controller="CommentsController" class="btn btn-primary float-right" style="margin-right: 25px">Cancel</button>

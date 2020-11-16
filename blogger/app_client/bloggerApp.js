@@ -225,11 +225,11 @@ app.controller("CommentsController", [ '$http', '$routeParams', '$state', 'authe
 	var vm = this;
 	vm.title = "Add Comment";
 	vm.blog = {};
+	vm.comment = {};
 	vm.id = $routeParams.id;
 	vm.commentsList = new Array();
 
-	vm.isLoggedIn = authentication.isLoggedIn();
-	vm.currentUser = authentication.currentUser();
+	var currentUser = authentication.currentUser();
 
 	//Get blog data 
 	getBlogById($http, vm.id).success(function(data) {
@@ -244,7 +244,16 @@ app.controller("CommentsController", [ '$http', '$routeParams', '$state', 'authe
 	vm.submit = function() {
 		//add comment to comments list then overwrite comments with it
 		var data = {};
-		vm.commentsList.push(userForm.comments.value);
+		var comment = vm.comment;
+		
+		comment.author = currentUser.name;
+		comment.authorEmail = currentUser.email;
+		comment.text = userForm.comments.value;
+
+		vm.commentsList.push(comment);
+		//print out list for debugging
+		console.log(vm.commentsList);
+		
 		data.comments = vm.commentsList;
 
 		addComment($http, authentication, vm.id, data)
