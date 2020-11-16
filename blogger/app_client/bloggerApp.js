@@ -251,9 +251,6 @@ app.controller("CommentsController", [ '$http', '$routeParams', '$state', 'authe
 		comment.text = userForm.comments.value;
 
 		vm.commentsList.push(comment);
-		//print out list for debugging
-		console.log(vm.commentsList);
-		
 		data.comments = vm.commentsList;
 
 		addComment($http, authentication, vm.id, data)
