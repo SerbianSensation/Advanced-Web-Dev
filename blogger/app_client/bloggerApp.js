@@ -270,7 +270,7 @@ app.controller("CommentsController", [ '$http', '$routeParams', '$state', 'authe
 }]);
 
 /* Comments List Controller */
-app.controller("CommentsListController", [ '$http', 'authentication', '$routeParams', function CommentsListController($http, authentication, $routeParams) {
+app.controller("CommentsListController", [ '$http', 'authentication', '$routeParams', '$scope', '$interval', function CommentsListController($http, authentication, $routeParams, $scope, $interval) {
 	var vm = this;
 	vm.title = "Blog Comments";
 	vm.blog = {};
@@ -278,7 +278,7 @@ app.controller("CommentsListController", [ '$http', 'authentication', '$routePar
 
 	vm.isLoggedIn = authentication.isLoggedIn();
 
-	//Get blog data 
+	//Get blog info (including blog comments)
 	getBlogById($http, vm.id).success(function(data) {
 		vm.blog = data;
 		vm.message = "Blog data found!";
@@ -286,5 +286,19 @@ app.controller("CommentsListController", [ '$http', 'authentication', '$routePar
 	.error(function (e) {
 		vm.message = "Could not get blog with id " + vm.id;
 	});
+
+	//refresh blog info (blog comments specifically) periodically
+	$scope.callAtInterval = function() {
+		console.log("Interval refresh occured");
+		getBlogById($http, vm.id).success(function(data) {
+			vm.blog = data;
+			vm.message = "Blog data found!";
+		})
+		.error(function (e) {
+			vm.message = "Could not get blog with id " + vm.id;
+		});
+	}
+	//set interval refresh times to be every 3 seconds
+	$interval( function() {$scope.callAtInterval();}, 3000, 0, true);
 
 }]);
